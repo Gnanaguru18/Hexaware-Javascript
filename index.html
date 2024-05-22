@@ -1,44 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation and Event Listeners</title>
+    <style>
+        h1 {
+            color: crimson;
+        }
+        .title {
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the app</h1>
+    <h2 id="sub-heading">Welcome to the app</h2>
+    <h3 class="title">Welcome to the app 1</h3>
+    <h4 class="title">Welcome to the app 2</h4>
+    <h5 class="title">Welcome to the app 3</h5>
+    <h6>Welcome to the app</h6>
+    
+    <button id="change-text">Change Text</button>
+    
     <script>
-  
-      function movieUrl(domain, genre, year) {
-        return `http://${domain}?genere=${genre}&year=${year}`;
+        var h2 = document.getElementById("sub-heading");
+        console.log(h2.innerText);
+        h2.innerText = "This is super cool"; // update your HTML
+        
+        var titles = document.getElementsByClassName("title");
+        console.log(titles);
+        
+        for (let title of titles) {
+            console.log(title.innerText);
+        }
+
+        document.getElementById('change-text').addEventListener('click', function() {
+            h2.innerText = "Text has been changed!";
+            console.log("Button clicked to change text");
+        });
+
+
+
+      function checkForAge() {
+        const age = document.getElementById("age").value;
+        console.log("Checking...", age);
+ 
+        document.getElementById("result").innerText =
+              (age >= 18)?"Your are eligible":"Your are not eligible. Try again after few years 👶";
+ 
+        
       }
- 
-      console.log(movieUrl("imdb.com", "thriller", 2020));
-    
-    
- let t1 = [80, 90];
-      let t2 = [50, 60];
-      let t3 = [...t1, ...t2];
-      console.log(t3);
-      //   [80, 90, 50, 60]
- 
-      //   Math operation
-      console.log(Math.max(6, 7, 4)); // Accepts n no. of argument
- 
-      let heights = [120, 140, 190, 80, 170]; // object
-      //   console.log(
-      //     Math.max(heights[0], heights[1], heights[2], heights[3], heights[4])
-      //   );
-      console.log(Math.max(heights)); // NaN
-      console.log(Math.max(...heights)); // 190
- 
-      //   ... rest
-      function own_max(...nums) {
-        // code
-        return nums;
-      }
-      console.log(own_max(5, 6, 10));
-      console.log(own_max(5, 6, 10, 7, 80, 60));
-    
+
     </script>
-  </body>
+</body>
 </html>
